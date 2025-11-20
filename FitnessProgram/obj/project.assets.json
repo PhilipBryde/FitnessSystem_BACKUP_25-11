@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sidne\\source\\repos\\FitnessProgram\\FitnessProgram\\FitnessProgram.csproj",
+      "projectUniqueName": "C:\\Users\\sidne\\source\\repos\\FitnessSystem\\FitnessProgram\\FitnessProgram.csproj",
       "projectName": "FitnessProgram",
-      "projectPath": "C:\\Users\\sidne\\source\\repos\\FitnessProgram\\FitnessProgram\\FitnessProgram.csproj",
+      "projectPath": "C:\\Users\\sidne\\source\\repos\\FitnessSystem\\FitnessProgram\\FitnessProgram.csproj",
       "packagesPath": "C:\\Users\\sidne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sidne\\source\\repos\\FitnessProgram\\FitnessProgram\\obj\\",
+      "outputPath": "C:\\Users\\sidne\\source\\repos\\FitnessSystem\\FitnessProgram\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sidne\\AppData\\Roaming\\NuGet\\NuGet.Config",

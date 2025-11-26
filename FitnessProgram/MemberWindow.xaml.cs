@@ -19,28 +19,11 @@ namespace FitnessProgram
     /// </summary>
     public partial class MemberWindow : Window
     {
-        List<Member> memberList = new List<Member>(); //liste hvor de forskellige medlemmer bliver tilføjet ind i
+        Fitness fitness = new Fitness();
 
         public MemberWindow()
         {
             InitializeComponent();
-
-            //Opretter medlemmer med givende id, navn og køn
-            memberList.Add(new Member(1, "Mathias", 'M'));
-            memberList.Add(new Member(2, "Anders", 'M'));
-            memberList.Add(new Member(3, "Sofie", 'F'));
-            memberList.Add(new Member(4, "Caroline", 'F'));
-            memberList.Add(new Member(5, "Rasmus", 'M'));
-            memberList.Add(new Member(6, "Johan", 'M'));
-            memberList.Add(new Member(7, "Ida", 'F'));
-            memberList.Add(new Member(8, "Emma", 'F'));
-            memberList.Add(new Member(9, "Victor", 'M'));
-            memberList.Add(new Member(10, "Gertrud", 'F'));
-            memberList.Add(new Member(11, "Richard", 'M'));
-            memberList.Add(new Member(12, "Lasse", 'M'));
-            memberList.Add(new Member(13, "Maya", 'F'));
-            memberList.Add(new Member(14, "Victoria", 'F'));
-            memberList.Add(new Member(15, "Magnus", 'M'));
 
             ShowMembers(); //Kalder på ShowMembers funktionen som printer medlemmerne ud
             
@@ -48,11 +31,12 @@ namespace FitnessProgram
 
         public void ShowMembers()
         {
+            List<Member> localList = fitness.GetAllMembers();
             StringBuilder allMembers = new StringBuilder(); //Opretter en StringBuilder som samler alt fra listen på en hukommelseseffektiv måde
             //string allMembers = "";
-            for (int i = 0; i < memberList.Count; i++) //For løkke der printer alle medlemmer ud
+            for (int i = 0; i < localList.Count; i++) //For løkke der printer alle medlemmer ud
             {
-                var member = memberList[i];
+                var member = localList[i];
                 allMembers.AppendLine($"ID: {member.id} Navn: {member.name} Køn: {member.gender}"); //printer hvert variabel i hver sin linje, da StringBuilder gør det til én stor string
                 
             }

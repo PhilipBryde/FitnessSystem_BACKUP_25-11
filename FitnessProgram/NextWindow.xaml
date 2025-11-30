@@ -55,5 +55,6 @@
             VerticalAlignment="Center" 
             Margin="0,40,48,0" 
             Click="Button_Click"/>
+        <Button x:Name="GoToActivity" Content="Button" HorizontalAlignment="Left" Margin="584,32,0,0" Grid.Row="3" VerticalAlignment="Top" Click="GoToActivity_Click"/>
     </Grid>
 </Window>

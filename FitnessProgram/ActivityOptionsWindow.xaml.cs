@@ -19,10 +19,19 @@ namespace FitnessProgram
     /// </summary>
     public partial class ActivityOptionsWindow : Window
     {
+        //public Dictionary<string, List<Member>> activityMembers = new Dictionary<string, List<Member>>();
+        Fitness fitness = new Fitness();
+
         public ActivityOptionsWindow(string activityName)
         {
             InitializeComponent();
             ActivityName.Content = activityName; //Texten bliver laver om til det valge aktivitets navn
+            
+        }
+
+        public void ShowMemberAmmount()
+        {
+            
         }
     }
 }

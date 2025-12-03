@@ -39,15 +39,6 @@ namespace FitnessProgram
             this.Close();
         }
 
-        // --- Fun botton --- Sidney
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            for (int i = 0; i < 1000; i++)
-            {
-                MainWindow main = new MainWindow();
-                main.Show();
-            }
-        }
 
         // --- Button: Open Activity Window --- philip
         private void GoToActivity_Click(object sender, RoutedEventArgs e)

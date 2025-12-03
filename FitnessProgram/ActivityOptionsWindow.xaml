@@ -8,7 +8,7 @@
         Title="ActivityOptionsWindow" Height="450" Width="800">
     <Grid Background="Black">
         <Label x:Name="ActivityName" FontSize="15" Foreground="White" HorizontalAlignment="Left" Margin="374,82,0,0" VerticalAlignment="Top"/>
-        <TextBlock Foreground="White" HorizontalAlignment="Left" Margin="119,168,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="MemberBlock" Foreground="White" HorizontalAlignment="Left" Margin="119,168,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
         <Label Foreground="White" FontWeight="Bold" Content="Medlemmer" HorizontalAlignment="Left" Margin="104,123,0,0" VerticalAlignment="Top"/>
 
     </Grid>

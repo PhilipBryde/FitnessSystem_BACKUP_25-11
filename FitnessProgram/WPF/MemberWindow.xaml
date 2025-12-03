@@ -50,7 +50,7 @@
             Click="BackButton_Click"/>
         <TextBox x:Name="EnterMember" HorizontalAlignment="Left" Margin="632,117,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="DeleteMemberButton" Foreground="White" Background="Red" Content="Slet" HorizontalAlignment="Left" Margin="675,140,0,0" Grid.Row="1" VerticalAlignment="Top" Click="DeleteMemberButton_Click"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="730,82,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="Button" Content="Button" HorizontalAlignment="Left" Margin="730,82,0,0" Height="18" VerticalAlignment="Top" Click="Button_Click_1"/>
         <TextBlock HorizontalAlignment="Left" Margin="589,88,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Tast medlemmets ID for at slette det" VerticalAlignment="Top"/>
 
     </Grid>

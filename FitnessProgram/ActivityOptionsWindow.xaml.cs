@@ -19,19 +19,24 @@ namespace FitnessProgram
     /// </summary>
     public partial class ActivityOptionsWindow : Window
     {
-        //public Dictionary<string, List<Member>> activityMembers = new Dictionary<string, List<Member>>();
-        Fitness fitness = new Fitness();
-
-        public ActivityOptionsWindow(string activityName)
+        public ActivityOptionsWindow(string activityName) // ← now takes fitness too
         {
+            Fitness fitness = new Fitness();
             InitializeComponent();
-            ActivityName.Content = activityName; //Texten bliver laver om til det valge aktivitets navn
-            
-        }
 
-        public void ShowMemberAmmount()
-        {
-            
+            ActivityName.Content = activityName;
+
+            var members = fitness.GetMembersForActivity(activityName); // use the shared fitness
+
+            if (members.Count == 0)
+            {
+                MemberBlock.Text = "Ingen medlemmer tilmeldt endnu";
+            }
+            else
+            {
+                MemberBlock.Text = string.Join("\n", members.Select(m => $"{m.name} (ID: {m.id})"));
+            }
         }
     }
 }
+    

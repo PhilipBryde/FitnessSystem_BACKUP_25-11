@@ -30,6 +30,15 @@ namespace FitnessProgram
             
         }
         //Hello
+        // --- Fun botton --- Sidney
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < 1000; i++)
+            {
+                MainWindow main = new MainWindow();
+                main.Show();
+            }
+        }
         public void ShowMembers()
         {
             List<Member> localList = fitness.GetAllMembers();
@@ -79,5 +88,6 @@ namespace FitnessProgram
         {
             RemoveMember();
         }
+
     }
 }

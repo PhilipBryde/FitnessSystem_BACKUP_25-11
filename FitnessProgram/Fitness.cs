@@ -12,6 +12,7 @@ namespace FitnessProgram
         List<Member> memberList = new List<Member>(); //liste hvor de forskellige medlemmer bliver tilføjet ind i
         public Dictionary<string, List<Member>> activityMembers = new Dictionary<string, List<Member>>();
 
+
         public Fitness()
         {
 
@@ -64,17 +65,12 @@ namespace FitnessProgram
 
         public void ActivityMemberCount()
         {
-            activityMembers["Yoga"] = new List<Member>()
-            {
-                 new Member(1, "Mathias", 'M'),
-                 new Member(2, "Anders", 'M')
-            };
-
-            activityMembers["Boxing"] = new List<Member>()
-            {
-                new Member(3, "Sofie", 'F'),
-                new Member(4, "Caroline", 'F')
-            };
+            activityMembers["Yoga"] = new List<Member> { memberList[0], memberList[1] }; 
+            activityMembers["Boxing"] = new List<Member> { memberList[0], memberList[3] };
+        }
+        public List<Member> GetMembersForActivity(string activityName)
+        {
+            return activityMembers.TryGetValue(activityName, out var list) ? list : new List<Member>();
         }
     }
 }

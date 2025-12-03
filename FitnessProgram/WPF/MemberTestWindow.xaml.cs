@@ -5,13 +5,13 @@ using System.Windows.Controls;
 
 namespace FitnessProgram
 {
-    public partial class ActivityWindow : Window
+    public partial class MemberTestWindow : Window
     {
         private Fitness _fitness = new Fitness();
         public ObservableCollection<string> Activities { get; set; } = new ObservableCollection<string>();
 
 
-        public ActivityWindow()
+        public MemberTestWindow()
         {
             InitializeComponent();
             DataContext = this;

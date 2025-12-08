@@ -71,14 +71,14 @@
         Click="LeaveActivity_Click"/>
 
         <TextBox
-          x:Name="TypeActivityIn"
-            Grid.Row="1"
-            HorizontalAlignment="Left"
-            Width="200"
-            Height="100" 
-            Margin="609,487,0,412"
-            />
-
+    x:Name="TypeActivityIn"
+    Grid.Row="1"
+    HorizontalAlignment="Left"
+    VerticalAlignment="Top"
+    Width="200"
+    Height="100" 
+    Margin="609,487,0,0" />
+        <!--Old Margin Margin="610,500,0,0"-->
         <TextBlock 
             x:Name="YogaCount" 
             Grid.Row="1" 

@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\bryde\\Documents\\GitHub\\FitnessSystem\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\sidne\\source\\repos\\FitnessSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{204B6883-A3E8-47E8-8DE8-F23E8F01227E}|FitnessProgram\\FitnessProgram.csproj|c:\\users\\sidne\\source\\repos\\fitnesssystem\\fitnessprogram\\xaml\\04_activitywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{204B6883-A3E8-47E8-8DE8-F23E8F01227E}|FitnessProgram\\FitnessProgram.csproj|solutionrelative:fitnessprogram\\xaml\\04_activitywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 222,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "04_ActivityWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\sidne\\source\\repos\\FitnessSystem\\FitnessProgram\\xaml\\04_ActivityWindow.xaml",
+              "RelativeDocumentMoniker": "FitnessProgram\\xaml\\04_ActivityWindow.xaml",
+              "ToolTip": "C:\\Users\\sidne\\source\\repos\\FitnessSystem\\FitnessProgram\\xaml\\04_ActivityWindow.xaml",
+              "RelativeToolTip": "FitnessProgram\\xaml\\04_ActivityWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-12-08T12:29:02.495Z",
+              "EditorCaption": ""
             }
           ]
         }

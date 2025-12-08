@@ -25,6 +25,8 @@ namespace FitnessProgram
 
             ShowActivity();
             ApplyRoleRestrictions(); // Hide admin controls if not admin
+            ApplyRoleRestrictions1(); //Member leave or join activity
+            UpdateAllCapacities(); //updater så man kan se hvor mange er på en aktivitet
         }
 
         // Hide admin-only controls
@@ -74,7 +76,7 @@ namespace FitnessProgram
         }
 
 
-        // Remove a member from an activity
+        // Remove a member from an activity - Sidney
         private void RemoveMemberFromActivity()
         {
             if (!int.TryParse(EnterActivity.Text, out int activityIndex))
@@ -137,7 +139,149 @@ namespace FitnessProgram
 
             target.Text = string.Join(Environment.NewLine, lines);
             MessageBox.Show($"Fjernede {memberName} fra aktiviteten.");
+
+            UpdateAllCapacities();
         }
+
+        //Hide Bruger login fra Admin -- philip
+        private void ApplyRoleRestrictions1()
+        {
+            if (member.role.ToLower() == "admin")
+            {
+                DeleteMemberButton.Visibility = Visibility.Visible;
+                AddMemberButton.Visibility = Visibility.Visible;
+                CreateActivity.Visibility = Visibility.Visible;
+                EnterActivity.Visibility = Visibility.Visible;
+                EnterMember.Visibility = Visibility.Visible;
+
+                // Hide user buttons
+                JoinButton.Visibility = Visibility.Collapsed;
+                LeaveButton.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                // Hide admin-only controls
+                DeleteMemberButton.Visibility = Visibility.Collapsed;
+                AddMemberButton.Visibility = Visibility.Collapsed;
+                CreateActivity.Visibility = Visibility.Collapsed;
+                EnterActivity.Visibility = Visibility.Collapsed;
+                EnterMember.Visibility = Visibility.Collapsed;
+
+                // Show user buttons
+                JoinButton.Visibility = Visibility.Visible;
+                LeaveButton.Visibility = Visibility.Visible;
+            }
+        }
+
+        //Medlemer tilmelder sig aktivitet -- Philip
+        private void JoinActivity_Click(object sender, RoutedEventArgs e)
+        {
+            if (!int.TryParse(TypeActivityIn.Text, out int activityIndex))
+            {
+                MessageBox.Show("Indtast et gyldigt aktivitetsnummer 1-5.");
+                return;
+            }
+
+            TextBlock? target = activityIndex switch
+            {
+                1 => Yoga,
+                2 => Boxing,
+                3 => Spinning,
+                4 => Pilates,
+                5 => Crossfit,
+                _ => null
+            };
+
+            if (target == null) return;
+
+            // Format: "ID: 1 Navn: Mathias Køn: M"
+            string displayMember =
+                $"ID: {member.id} Navn: {member.name} Køn: {member.gender}";
+
+            // Split lines
+            List<string> lines = target.Text
+                .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+
+            // Første linje er altid aktivitetens navn
+            int currentCount = lines.Count - 1;
+
+            // Tjek om brugeren allerede står på holdet
+            if (target.Text.Contains(member.name))
+            {
+                MessageBox.Show("Du er allerede tilmeldt dette hold.");
+                return;
+            }
+            // Tilføj medlem
+            target.Text += Environment.NewLine + displayMember;
+            MessageBox.Show($"Du er nu tilmeldt {activityIndex}.");
+
+            UpdateAllCapacities();
+        }
+
+        //Medlemer melder sig af aktivitet -- Philip
+        private void LeaveActivity_Click(object sender, RoutedEventArgs e)
+        {
+            if (!int.TryParse(TypeActivityIn.Text, out int activityIndex))
+            {
+                MessageBox.Show("Indtast et gyldigt aktivitetsnummer 1-5.");
+                return;
+            }
+
+            TextBlock? target = activityIndex switch
+            {
+                1 => Yoga,
+                2 => Boxing,
+                3 => Spinning,
+                4 => Pilates,
+                5 => Crossfit,
+                _ => null
+            };
+
+            if (target == null) return;
+
+            string displayMember =
+            $"ID: {member.id} Navn: {member.name} Køn: {member.gender}";
+
+            List<string> lines = target.Text
+                .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries)
+                .ToList();
+
+            bool removed = lines.Remove(displayMember);
+
+            if (!removed)
+            {
+                MessageBox.Show("Du er ikke tilmeldt dette hold.");
+                return;
+            }
+
+            target.Text = string.Join(Environment.NewLine, lines);
+            MessageBox.Show("Du er nu frameldt.");
+
+            UpdateAllCapacities();
+        }
+
+        //Vis antal meldemer tilmeldt aktivitet -- Philip 
+        private void UpdateCapacity(TextBlock activityText, TextBlock countText)
+        {
+            int maxCapacity = 5;
+
+            var lines = activityText.Text
+                .Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+            int count = lines.Length - 1; // minus activity name
+
+            countText.Text = $"{count}/{maxCapacity} tilmeldt";
+        }
+        private void UpdateAllCapacities()
+        {
+            UpdateCapacity(Yoga, YogaCount);
+            UpdateCapacity(Boxing, BoxingCount);
+            UpdateCapacity(Spinning, SpinningCount);
+            UpdateCapacity(Pilates, PilatesCount);
+            UpdateCapacity(Crossfit, CrossfitCount);
+        }
+
 
         // DELETE BUTTON HANDLER
         private void DeleteActivityButton_Click(object sender, RoutedEventArgs e) //Knap der kører RemoveMemberFromActivity funktionen
@@ -153,6 +297,7 @@ namespace FitnessProgram
             this.Close();
         }
 
+        // Sidney
         private void CreateActivity_Click(object sender, RoutedEventArgs e) //Knap der opretter ny aktivitet
         {
             string newActName = NewActivity.Text.Trim(); //Brugerens input bliver sat i ind string der bruges senere
@@ -171,4 +316,3 @@ namespace FitnessProgram
         }
     }
 }
-//Margin="1002,130,0,0"

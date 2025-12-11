@@ -13,8 +13,3 @@ ID: 12 Navn: Lasse Køn: M
 ID: 13 Navn: Maya Køn: F
 ID: 14 Navn: Victoria Køn: F
 ID: 15 Navn: Magnus Køn: M
-ID: 16, Navn: Lars, Køn: M
-ID: 16, Navn: Larssen, Køn: M
-ID: 16, Navn: , Køn: M
-ID: 17, Navn: Jørgen, Køn: M
-ID: 18, Navn: Hans, Køn: H

@@ -94,4 +94,11 @@ public class Fitness
 
     }
 
+    public void SaveActivityToFile(string activity) //Metode der gemmer ny aktivitet i text filen, tager string som input -- Sidney
+    {
+        string filePath = @"ActivityList.txt"; //Gemmer stien til textfilen
+        File.AppendAllText(filePath, Environment.NewLine + activity); //Tilføjer den nye aktivitet til textfilen
+
+    }
+
 }

@@ -25,6 +25,7 @@ namespace FitnessProgram
 
         private void ShowMembers() //Metode der viser alle medlemmerne fra textfilen i en string -- Sidney
         {
+            //---LEGACY UDGAVE UDFRA LISTEN I KODEN---
             /*List<Member> localList = _fitness.GetAllMembers();
             StringBuilder allMembers = new StringBuilder();
 
@@ -34,14 +35,16 @@ namespace FitnessProgram
                 allMembers.AppendLine($"ID: {member.id} Navn: {member.name} Køn: {member.gender}");
             }
 
-            MemberBlock.Text = allMembers.ToString();*/ //Legacy print members ud fra listen i Fitness.cs
+            MemberBlock.Text = allMembers.ToString();*/
+   
+            //--- NY UDGAVE UDFRA TEXTFILEN---
             StringBuilder allMembers = new StringBuilder(); //Opretter ny StringBuilder
 
-            for (int i = 0; i < _localList.Count; i++)
+            for (int i = 0; i < _localList.Count; i++) //En forløkke der kører så længe i er mindre end antallet af medlemmer i listen, inkrementerer i hvert loop
             {
-                allMembers.AppendLine(_localList[i]);  // viser 1, 2, 3... i stedet for 0, 1, 2...
+                allMembers.AppendLine(_localList[i]);  //Hver medlem/index bliver sat i vores StringBuilder som ny linje
             }
-            MemberBlock.Text = allMembers.ToString(); //Tager hver medlem og laver dem om til én string via StringBuilder
+            MemberBlock.Text = allMembers.ToString(); //Sætter dem sammen i en stor string i hukommelsen
         }
 
         private void RemoveMember() //Metode der fjerner medlem via dens index i listen, Gamle version fjernede via medlemmets ID -- Sidney
@@ -54,11 +57,11 @@ namespace FitnessProgram
                     _localList.RemoveAt(memberIndex);
                     //File.WriteAllLines(@"MemberList.txt", localList); Kan fjerne medlem permanent fra textfilen
                     ShowMembers();
-                    MessageBox.Show($"{memberIndex} er blevet slettet!");
+                    MessageBox.Show($"{memberID} er blevet slettet!");
                 }
                 else
                 {
-                    MessageBox.Show($"{memberIndex} findes ikke, prøv igen");
+                    MessageBox.Show($"{memberID} findes ikke, prøv igen");
                 }
             }
             else

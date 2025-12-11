@@ -453,9 +453,9 @@ namespace FitnessProgram
     
         private void CreateActivity_Click(object sender, RoutedEventArgs e) //Knap der opretter ny aktivitet -- Sidney
         {
-            string newActName = NewActivity?.Text.Trim(); //Brugerens input bliver sat i ind string der bruges senere
+            string input = NewActivity.Text.Trim(); //Brugerens input bliver sat i ind string der bruges senere
 
-            if (string.IsNullOrEmpty(newActName)) //if statement der kører så længe brugeren ikke skriver noget i TextBoxen
+            if (string.IsNullOrEmpty(input)) //if statement der kører så længe brugeren ikke skriver noget i TextBoxen
             {
                 MessageBox.Show("Indtast venligst et navn til aktivitetet");
                 return; //Stopper her og springer resten af koden nedenunder over
@@ -472,19 +472,9 @@ namespace FitnessProgram
             if (ActivityGrid != null)
             {
                 newActCount++;
-                /*Grid.SetRow(block, 1);
-                block.Foreground = Brushes.White;
-                block.FontWeight = FontWeights.Bold;
-                block.HorizontalAlignment = HorizontalAlignment.Left;
-                block.VerticalAlignment = VerticalAlignment.Top;
-                block.Margin = new Thickness(1030, 130, 0, 0);
-                block.TextWrapping = TextWrapping.Wrap;
-
-                block.Text = newActName.ToUpper(); 
-                ActivityGrid.Children.Add(block);*/
-                File.AppendAllText(filePath, Environment.NewLine + newActName); //Tilføjer den nye aktivitet til textfilen
+                fitness.SaveActivityToFile(input); //Gemmer den nye aktivitet i text filen via en metode i Fitness klassen, giver det nye navn som input
                 ShowActivity();
-                MessageBox.Show($"Aktivitet {newActName} oprettet");
+                MessageBox.Show($"Aktivitet {input} oprettet");
             }
         }
 
